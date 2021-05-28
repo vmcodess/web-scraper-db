@@ -5,7 +5,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 const userModel = require('./models/registrationModel')
 
