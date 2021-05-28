@@ -40,6 +40,7 @@ app.post('/signin', (req, res) => {
     if (bcrypt.compareSync(passwordInput, user.password)) {
       console.log('passwords match', user)
       res.json('success')
+      res.redirect('/');
     }
   })
   .catch((err) => {
@@ -65,7 +66,6 @@ app.post('/register', (req,res) => {
   })
 
 })
-
 
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`)
