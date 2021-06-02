@@ -39,12 +39,15 @@ app.post('/signin', (req, res) => {
   .then((user) => {
     if (bcrypt.compareSync(passwordInput, user.password)) {
       console.log('passwords match', user)
-      res.json('success')
-      res.redirect('/');
+      res.status(200).json('success')
+    } else {
+      res.status(401).json('passwordFail');
     }
   })
   .catch((err) => {
-    console.log('error comparing passwords', err)
+    console.log('Email doesnt exist in DB', err)
+    console.log(passwordInput);
+    res.status(401).json('emailFail')
   })
 })
 
